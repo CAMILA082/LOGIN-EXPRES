@@ -15,12 +15,17 @@ const saltRounds = 10;
 
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: process.env.URLFRONTEND || 'http://localhost:5173',
   credentials: true
 }))
 
 app.use(session({
-secret:'vdsvdjfdksngjdhfkjgfdgjkfbkjg'
+  secret: process.env.SECRETSESSION || 'vdsvdjfdksngjdhfkjgfdgjkfbkjg',
+   proxy:process.env.NODE_ENV === 'production',
+   cookie : {
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'none'
+  }
 }))
 
 
@@ -29,13 +34,13 @@ app.get('/', (req, res) => {
 })
 app.get('/login', login)
 
-app.get('/validar',validar )
+app.get('/validar', validar)
 
 
 app.get('/registro', registro)
-app.get('/usuarios',obtenerUsuarios )
+app.get('/usuarios', obtenerUsuarios)
 
-app.delete('/usuarios',eliminarUsuario )
+app.delete('/usuarios', eliminarUsuario)
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
