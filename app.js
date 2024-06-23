@@ -12,7 +12,7 @@ const registro = require('./registro');
 const { obtenerUsuarios, eliminarUsuario } = require('./usuarios');
 const validar = require('./validar');
 const saltRounds = 10;
-mysql://root:EsXBGwExoIFlnkWiveSULdLkMJgFEGEq@viaduct.proxy.rlwy.net:41550/railway
+
 
 
 app.use(cors({
