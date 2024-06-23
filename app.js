@@ -16,7 +16,7 @@ mysql://root:EsXBGwExoIFlnkWiveSULdLkMJgFEGEq@viaduct.proxy.rlwy.net:41550/railw
 
 
 app.use(cors({
-  origin: process.env.URLFRONTEND || 'http://localhost:5173',
+  origin: process.env.HOSTFRONTEND || 'http://localhost:5173',
   credentials: true
 }))
 
